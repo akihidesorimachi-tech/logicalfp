@@ -8,11 +8,12 @@
 import { useState, useEffect, useRef } from "react";
 
 // Local assets are intentionally bundled for provider-independent deployment.
-const LOGO_URL = "/assets/logo.png";
-const HERO_URL = "/assets/hero.webp";
-const CARD_DOCTOR_URL = "/assets/service-doctor.webp";
-const CARD_SIMULATOR_URL = "/assets/service-simulator.webp";
-const CARD_CONSULTANT_URL = "/assets/service-consultant.webp";
+// BASE_URL accounts for deployments served from a subpath (e.g. GitHub Pages project sites).
+const LOGO_URL = `${import.meta.env.BASE_URL}assets/logo.png`;
+const HERO_URL = `${import.meta.env.BASE_URL}assets/hero.webp`;
+const CARD_DOCTOR_URL = `${import.meta.env.BASE_URL}assets/service-doctor.webp`;
+const CARD_SIMULATOR_URL = `${import.meta.env.BASE_URL}assets/service-simulator.webp`;
+const CARD_CONSULTANT_URL = `${import.meta.env.BASE_URL}assets/service-consultant.webp`;
 
 const services = [
   {
@@ -173,7 +174,7 @@ export default function Home() {
         }`}
       >
         <div className="container flex items-center justify-between h-16">
-          <a href="/" className="flex items-center gap-3">
+          <a href={import.meta.env.BASE_URL} className="flex items-center gap-3">
             <img
               src={LOGO_URL}
               alt="LOGICAL FP"
