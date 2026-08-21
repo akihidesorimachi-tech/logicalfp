@@ -31,10 +31,10 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      # プロジェクトページ配信のため base はリポジトリ名のサブパス
+      # カスタムドメイン(logicalfp.pro)のルート配下で配信するため base は "/"
       - run: pnpm build
         env:
-          VITE_BASE_PATH: /logicalfp/
+          VITE_BASE_PATH: /
 
       - uses: actions/configure-pages@v5
 
